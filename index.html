@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=1"
+    />
+    <title>layout 后台大布局 - Layui</title>
+    <link rel="stylesheet" href="lib\layui\css\layui.css" />
+    <link rel="stylesheet" href="lib\fonts\iconfont.css" />
+    <link rel="stylesheet" href="./css/index.css" />
+  </head>
+  <body class="layui-layout-body">
+    <div class="layui-layout layui-layout-admin">
+      <div class="layui-header">
+        <div class="layui-logo">
+          <img src="images\logo.png" alt="" />
+        </div>
+
+        <ul class="layui-nav layui-layout-right">
+          <li class="layui-nav-item">
+            <a href="javascript:;">
+              <img src="http://t.cn/RCzsdCq" class="layui-nav-img" />
+              <span class="text-avatar"> A </span>
+              <span class="welcome">欢迎 ***</span>
+            </a>
+            <dl class="layui-nav-child">
+              <dd><a href="./user/user_info.html" target="fm">基本资料</a></dd>
+              <dd><a href="./user/user_pwd.html" target="fm">安全设置</a></dd>
+            </dl>
+          </li>
+          <li class="layui-nav-item">
+            <a href="javascript:;" id="btn-logout"
+              ><span class="iconfont icon-tuichu"></span>退了</a
+            >
+          </li>
+        </ul>
+      </div>
+
+      <div class="layui-side layui-bg-black">
+        <div class="layui-side-scroll">
+          <!-- 左侧导航区域（可配合layui已有的垂直导航） -->
+          <a href="javascript:;" class="userinfo">
+            <img src="http://t.cn/RCzsdCq" class="layui-nav-img" />
+            <span class="text-avatar"> A </span>
+            <span id="welcome">欢迎 ***</span>
+          </a>
+          <ul
+            class="layui-nav layui-nav-tree"
+            lay-filter="test"
+            lay-shrink="all"
+          >
+            <li class="layui-nav-item">
+              <a href="http://caoyusong9527.cn/" target="fm"
+                ><span class="iconfont icon-home"></span>首页</a
+              >
+            </li>
+            <li class="layui-nav-item layui-nav-itemed">
+              <a class="" href="javascript:;"
+                ><span class="iconfont icon-16"></span>文章管理</a
+              >
+              <dl class="layui-nav-child">
+                <dd>
+                  <a href="./articcle/article_cate.html" target="fm"
+                    ><i class="layui-icon layui-icon-app"></i>文章类别</a
+                  >
+                </dd>
+                <dd>
+                  <a href="./articcle/article_list.html" target="fm"
+                    ><i class="layui-icon layui-icon-app"></i>文章列表</a
+                  >
+                </dd>
+                <dd>
+                  <a href="./articcle/article_pub.html" target="fm"
+                    ><i class="layui-icon layui-icon-app"></i>发表文章</a
+                  >
+                </dd>
+              </dl>
+            </li>
+            <li class="layui-nav-item">
+              <a href="javascript:;"
+                ><span class="iconfont icon-user"></span>个人中心</a
+              >
+              <dl class="layui-nav-child">
+                <dd>
+                  <a href="./user/user_info.html" target="fm"
+                    ><i class="layui-icon layui-icon-app"></i>基本资料</a
+                  >
+                </dd>
+                <dd>
+                  <a href="./user/user_tx.html" target="fm"
+                    ><i class="layui-icon layui-icon-app"></i>更换头像</a
+                  >
+                </dd>
+                <dd>
+                  <a href="./user/user_pwd.html" target="fm"
+                    ><i class="layui-icon layui-icon-app"></i>重置密码</a
+                  >
+                </dd>
+              </dl>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="layui-body">
+        <!-- 内容主体区域 -->
+        <!-- <div style="padding: 15px">内容主体区域</div> -->
+        <iframe
+          name="fm"
+          src="http://caoyusong9527.cn/"
+          frameborder="0"
+        ></iframe>
+      </div>
+
+      <div class="layui-footer">
+        <!-- 底部固定区域 -->
+        © layui.com - 底部固定区域
+      </div>
+    </div>
+    <script src="./lib/jquery.js"></script>
+    <script src="lib\layui\layui.all.js"></script>
+    <script src="./js/utils.js"></script>
+    <script src="./js/index.js"></script>
+    <script>
+      //JavaScript代码区域
+      layui.use("element", function () {
+        var element = layui.element;
+      });
+    </script>
+  </body>
+</html>

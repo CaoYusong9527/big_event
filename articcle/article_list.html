@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <!-- 加载第三方的 layui.css -->
+    <link rel="stylesheet" href="../lib/layui/css/layui.css" />
+    <!-- 加载自己的css -->
+    <link rel="stylesheet" href="./article_css/article_list.css />
+  </head>
+
+  <body>
+    <div class="layui-card">
+      <div class="layui-card-header">文章列表</div>
+      <div class="layui-card-body">
+        <!-- 内容区一  搜索区 -->
+        <form class="layui-form" id="form-search">
+          <div class="layui-form-item">
+            <div class="layui-inline">
+              <div class="layui-input-inline" style="width: 100px">
+                <select name="cate_id" id="sct-cate">
+                  <!-- 动态渲染 -->
+                </select>
+              </div>
+
+              <div class="layui-input-inline" style="width: 100px">
+                <!-- 表单请求： name=“city” value=“010” -->
+                <select name="state">
+                  <option value="">所有状态</option>
+                  <option value="已发布">已发布</option>
+                  <option value="草稿">草稿</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="layui-inline">
+              <div class="layui-input-inline" style="width: 100px">
+                <button class="layui-btn" lay-submit lay-filter="formDemo">
+                  筛选
+                </button>
+              </div>
+            </div>
+          </div>
+        </form>
+        <!-- 内容区二  表格区 -->
+        <table class="layui-table">
+          <colgroup>
+            <col width="10%" />
+            <col width="38%" />
+            <col width="10%" />
+            <col width="20%" />
+            <col width="8%" />
+            <col />
+          </colgroup>
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>文章标题</th>
+              <th>所属分类</th>
+              <th>发布时间</th>
+              <th>状态</th>
+              <th>操作</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- 这里放内容 -->
+          </tbody>
+        </table>
+        <!-- 内容区三  分页区 -->
+        <div id="page"></div>
+      </div>
+    </div>
+
+    <!-- 文章列表的模板 -->
+    <script type="text/html" id="tpl-table">
+      {{each data}}
+      <tr>
+        <td>{{$value.Id}}</td>
+        <td>{{$value.title}}</td>
+        <td>{{$value.cate_name}}</td>
+        <td>{{$value.pub_date|formatDate}}</td>
+        <td>{{$value.state}}</td>
+        <td>
+          <button
+            data-id="{{$value.Id}}"
+            type="button"
+            class="layui-btn layui-btn-xs edit"
+          >
+            编辑
+          </button>
+          <button
+            data-id="{{$value.Id}}"
+            type="button"
+            class="layui-btn layui-btn-danger layui-btn-xs delete"
+          >
+            删除
+          </button>
+        </td>
+      </tr>
+      {{/each}}
+    </script>
+
+    <!-- select的option所有分类模板 -->
+
+    <script type="text/html" id="tpl-cate">
+      <option value="">所有分类</option>
+      {{each data}}
+      <option value="{{$value.Id}}">{{$value.name}}</option>
+      {{/each}}
+    </script>
+    <!-- 加载jquery.js -->
+    <script src="../lib/jquery.js"></script>
+
+    <!-- 加载template-web.js -->
+    <script src="../lib/template-web.js"></script>
+
+    <script src="../lib/moment.js"></script>
+    <!-- 加载自己的js -->
+    <script src="../js/utils.js"></script>
+    <script src="./article_js/article_list.js"></script>
+    <!-- 加载layui.all.js -->
+    <script src="../lib/layui/layui.all.js"></script>
+  </body>
+</html>
